@@ -1,5 +1,17 @@
 @import "./basic";
 
+@-webkit-keyframes imgRoate{
+	0%{
+		transform:rotate(0);
+		-webkit-transform:rotate(0);
+	}
+	100%{
+		transform:rotate(360deg);
+		-webkit-transform:rotate(360deg);
+	}
+}
+
+// 小播放器
 .playSong_wrap{
 	position: absolute;
 	bottom: 0;
@@ -15,6 +27,10 @@
 		height: rem(40);
 		margin: 0 rem(10) 0 rem(20);
 		border-radius: 50%;
+	}
+	.play{
+		animation:imgRoate 10s linear infinite;
+		-webkit-animation:imgRoate 10s linear infinite;
 	}
 	.playSong_msg{
 		position: relative;
@@ -51,4 +67,84 @@
 			background-position: rem(12) rem(-167);
 		}
 	}
+}
+
+// 全屏播放器
+.fullPlayer_wrap{
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	width: 100%;
+	height: 100%;
+	background:#333;
+	.background_img{
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -1;
+		width: 100%;
+		height: 100%;
+		opacity: 0.6;
+		filter:blur(20px);
+	}
+	.fullPlayer_top{
+		position: relative;
+		margin-bottom: rem(25);
+		text-align: center;
+		.shrink_wrap{
+			position: absolute;
+			top: 0;
+			left: rem(5);
+			width: rem(40);
+			height: rem(40);
+			line-height: rem(40);
+			.shrink_btn{
+				display: inline-block;
+				width: rem(17);
+				height: rem(12);
+				background: url("../assets/up_arrow.png") no-repeat;
+				background-size: rem(17) auto; 
+				transform:rotate(180deg);
+				-webkit-transform:rotate(180deg);
+			}
+		}
+		.fullPlayer_title{
+			width: 70%;
+			height: rem(40);
+			margin: auto;
+			color: #fff;
+			font-size: rem(18);
+			font-weight: normal;
+			line-height: rem(40);	
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+		.fullPlayer_singer{
+			height: rem(20);
+			line-height: rem(20);
+			color: #fff;
+			font-weight: normal;
+		}
+	}
+	.fullPlayer_cover{
+		display: flex;
+		display: -webkit-flex;
+		align-items: center;
+		-webkit-align-items: center;
+		justify-content:center;
+		-webkit-justify-content:center;
+		width: rem(300);
+		height: rem(300);
+		margin: 0 auto;
+		background: rgba(255,255,255,0.1);
+		border-radius: 50%;
+		.cover_img{
+			width: rem(280);
+			height: rem(280);
+			border-radius: 50%;
+		}
+	}
+	
 }

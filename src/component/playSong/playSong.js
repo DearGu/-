@@ -1,19 +1,27 @@
 import React,{ Component } from "react";
 import "../../scss/playSong.scss";
+import Player from "./player";
+import FullPlayer from "./fullPlayer";
+import { connect } from "react-redux";
 
+// 音乐播放器组件
 class PlaySong extends Component{
 	render(){
+		let {songUrl} = this.props.playSongState;
 		return(
-			<div className="playSong_wrap">
-				<img src="https://y.gtimg.cn/music/photo_new/T001R150x150M000002XVZaw3X63Kp.jpg?max_age=2592000" />		
-				<div className="playSong_msg">
-					<p className="song_name">圆</p>
-					<p className="singer_name">AGA</p>
-					<div className="playSong_btn pause_icon"></div>
-				</div>
+			<div>
+				<FullPlayer></FullPlayer>
+				<Player audio={this.refs}></Player>
+				<audio src={`${songUrl}`} ref="songPlayer" autoPlay></audio>
 			</div>
 		)
 	}
 }
 
-export default PlaySong;
+const mapStateToProps = (state) => {
+	return {
+		playSongState:state
+	}
+}
+
+export default connect(mapStateToProps)(PlaySong);
