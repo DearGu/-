@@ -1,0 +1,54 @@
+@import "./basic";
+
+.playSong_wrap{
+	position: absolute;
+	bottom: 0;
+	display: flex;
+	display: -webkit-flex;
+	align-item: center;
+	-webkit-align-items: center;
+	width: 100%;
+	height: rem(60);
+	background: #333;
+	img{
+		width: rem(40);
+		height: rem(40);
+		margin: 0 rem(10) 0 rem(20);
+		border-radius: 50%;
+	}
+	.playSong_msg{
+		position: relative;
+		flex: 1;
+		-webkit-flex: 1; 
+		.song_name{
+			margin-bottom: rem(5);
+			color:#fff;
+			font-size: rem(14);
+		}
+		.singer_name{
+			color:rgba(255,255,255,0.3);
+			font-size: rem(12);
+		}
+		.playSong_btn{
+			position: absolute;
+			margin: auto;
+			top: 0;
+			bottom: 0;
+			right: rem(15);
+			width: rem(30);
+			height: rem(30);
+			border: 1px solid #ccc;
+			border-radius: 50%;
+		}
+		.play_icon{
+			background: url("../assets/sprite_play.png") no-repeat;
+			background-size: rem(32) rem(340);
+			background-position: rem(11) rem(-140);
+		}
+		.pause_icon{
+			background: url("../assets/sprite_play.png") no-repeat;
+			background-size: rem(32) rem(340);
+			background-position: rem(12) rem(-167);
+		}
+	}
+}

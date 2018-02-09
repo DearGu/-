@@ -1,0 +1,297 @@
+@import './basic';
+
+// 首页头部
+.m_header{
+	position: fixed;
+	top: 0;
+	z-index: 2;
+	width: 100%;
+	height: rem(64);
+	background: #d43c33;
+	.svg_wrap{
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 10px;
+		margin: auto;
+		width: rem(142);
+		height: rem(25);
+	}
+}
+
+// 首页tab导航栏
+.m_nav{
+	position: fixed;
+	top: rem(64);
+	z-index: 2;
+	display: flex;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	width: 100%;
+	text-align: center;
+	background: #fff;
+	.m_nav_item{
+		position: relative;
+		flex:1;
+		-webkit-flex:1;
+		-moz-flex:1;
+		-ms-flex:1;
+		.nav_tab{
+			display: inline-block;
+			width: rem(70);
+			height: rem(40);
+			line-height: rem(40);
+			padding: 0 5px;
+			text-align: center;
+			box-sizing:border-box;
+			font-size: rem(15);
+			color:#333;
+			box-sizing:border-box;
+		}
+		.active{
+			a{
+				color:#d33a31;
+			}			
+			border-bottom: 2px solid #d33a31;
+		}
+	}
+	&:after{
+		content: "";
+		position: absolute;
+		left: 0;
+		z-index: -1;
+		bottom: 0;
+		width: 100%;
+		border-bottom: 1px solid #ccc;
+	}
+}
+
+// 推荐音乐样式
+.tab_item{
+	padding-top: rem(104);
+	.tab_item_title{
+		position: relative;
+		padding-left: rem(9); 
+		margin: rem(20) 0 rem(14) 0;
+		height: rem(20);
+		font-size: rem(17);
+		line-height: rem(20);
+		&:after{
+			content: "";
+			position: absolute;
+			top: 1px;
+			left: 0;
+			height: rem(16);
+			border-left: 2px solid #d33a31;
+		}
+	}
+}
+.remd_item_wrap{
+	position: relative;
+	display: flex;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	flex-wrap : wrap;
+	-moz-flex-wrap : wrap;
+	-ms-flex-wrap : wrap;
+	.remd_item{
+		position: relative;
+		margin-bottom: rem(16);
+		box-sizing: border-box;
+		flex: 0 0 33.3%;
+		-webkit-flex: 0 0 33.3%;
+		-moz-flex: 0 0 33.3%;
+		-ms-flex: 0 0 33.3%;
+		&:nth-of-type(3n){
+			padding-left: rem(2);
+		}
+		&:nth-of-type(3n+1){
+			padding-right: rem(2);
+		}
+		&:nth-of-type(3n+2){
+			padding: 0 rem(1);
+		}
+		.remd_img{
+			display: block;
+			width: 100%;
+		}
+		.playCount{
+			position: absolute;
+			top: rem(2);
+			right: rem(5);
+			padding-left: rem(13);
+			color: #fff;
+			font-size: rem(12);
+			background: url("../assets/headset_icon.svg") no-repeat left center;
+			background-size: rem(12);
+		}
+		.remd_msg{
+			display: -webkit-box;
+			padding: 0.5rem 0 0 0.5rem;
+			-webkit-box-orient: vertical;
+			-webkit-line-clamp: 2;
+			font-size: rem(13);
+			overflow: hidden;
+		}
+	}
+}
+
+// 热歌榜样式
+.hot_top{
+	display: flex;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	-webkit-align-items: center;
+	align-items: center;
+	width: 100%;
+	height: rem(145);
+	padding-left: rem(20);
+	background: url("../assets/hot_music_bg_2x.jpg") no-repeat;
+	background-size: 100%;
+	box-sizing:border-box;
+	.hot_top_title{
+	    width: rem(142);
+	    height: rem(67);
+	    background: url("../assets/index_icon_2x.png") no-repeat;
+	    background-size: rem(166) rem(97);
+	    background-position: rem(-24) rem(-30);
+	}
+}
+
+// 搜索样式
+.searchForm{
+	position: relative;
+	padding: rem(15) rem(10);
+	box-sizing:border-box;
+	&:after{
+		content:"";
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		border-bottom: 1px solid #ccc;
+	}
+	.search_wrap{
+		position: relative;
+		height: rem(30);
+		padding:0 rem(30);
+		box-sizing:border-box;
+		background: #ebecec;
+		border-radius: rem(30);
+		.search_icon{
+			position: absolute;
+			margin: auto;
+			left: 3%;
+			top: 0;
+			bottom: 0;
+			display: block;
+			width: rem(13);
+			height: rem(13);
+			background: url("../assets/search_icon.svg") no-repeat;
+		}
+		.search_input{
+			width: 100%;
+			height: rem(30);
+			line-height: rem(18);
+			font-size: rem(14);
+			color: #333;
+			&::-webkit-input-placeholder{
+				color: #c9c9c9;
+			}
+			&::-webkit-search-cancel-button{
+				display: none;
+			}
+		}
+		.clear_warp{
+			position: absolute;
+			margin: auto;
+			right: 0;
+			top: 0;
+			width: rem(30);
+			height: rem(30);
+			text-align: center;
+			line-height: rem(33);
+		}
+		.clear_btn{	
+			display: inline-block;
+			width: rem(14);
+			height: rem(14);
+			background: url("../assets/clear_icon.svg") no-repeat;
+		}
+	}
+}
+
+// 热门搜索标签
+.hot_tab_list{
+	padding: rem(15) rem(10) 0;
+	h3{
+		font-size: rem(12);
+		color: #666;
+		font-weight: normal;
+	}
+	.hot_tab_wrap{
+		margin: rem(10) 0 rem(7);
+		.search_tab{
+			position: relative;
+		    display: inline-block;
+		    height: rem(32);
+		    margin-right: rem(8);
+		    margin-bottom: rem(8);
+		    padding: 0 rem(14);
+		    font-size: rem(14);
+		    line-height: rem(32);
+		    color: #333;
+		    &:after{
+				content:"";
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 200%;
+				height: 200%;
+				border: 1px solid #ccc;
+				border-radius: rem(32);
+		    }
+		}
+	}
+}
+
+// 搜索明星详情
+.singer_msg{
+	position: relative;
+	margin-left: rem(10);
+	padding: rem(8) 0;
+	&:after{
+		content: "";
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		border-bottom:1px solid #ccc; 
+	}
+	h3{
+		margin-bottom: rem(8);
+		font-size: rem(12);
+		font-weight: normal;
+		color: #666;
+	}
+	.singer_wrap{
+		position: relative;
+		display: flex;
+		display: -webkit-flex;
+		display: -moz-flex;
+		display: -ms-flex;
+		img{
+			width: rem(50);
+			height: rem(50);
+		}
+		.singer_text{
+			margin-left: rem(15);
+			font-size: rem(17);
+			line-height: rem(50);
+		}
+	}
+}
+

@@ -1,0 +1,6 @@
+$root-width:16px;
+$baseNum:16;
+
+@function rem($num){
+	@return ($num/$baseNum)*1rem;
+}

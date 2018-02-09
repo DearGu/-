@@ -1,0 +1,157 @@
+@import './basic';
+
+//初始样式
+body{
+    -webkit-overflow-scrolling:touch;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);    
+}
+body,ul,p,h1,h2,h3{    
+    margin:0;
+    padding:0;
+    font-family: "Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
+}
+html,ul,p,h1,h2,h3{
+    font-size: 1rem;
+    color:#333;
+}
+ul{
+    list-style: none;
+}
+a{
+	color:#333;
+    text-decoration: none;
+}
+input,textarea,select{
+	-webkit-appearance: none;
+    border-radius: 0;
+    border: 0;
+    background-color: transparent;
+    outline: none;
+}
+
+// 公用部分
+@media screen and (-webkit-min-device-pixel-ratio: 2){
+	.m_nav:after,.songList_wrap .songList_item:after,.searchForm:after,.singer_msg:after{	   
+	    -webkit-transform: scaleY(.5);
+	    transform: scaleY(.5);
+	    -webkit-transform-origin: 0 0;
+	}
+	.hot_tab_list .search_tab:after{
+		-webkit-transform: scale(.5);
+	    transform: scale(.5);
+	    -webkit-transform-origin: 0 0;
+	}
+}
+.fixed{
+	position: fixed;
+}
+.relative{
+	position: relative;
+}
+
+// 歌曲列表样式
+.songList_wrap{
+	padding-left: rem(10);
+	overflow-x: hidden;
+	.songList_item{
+		position: relative;
+		display: flex;
+		display: -webkit-flex;
+		padding: rem(6) 0;
+		box-sizing:border-box;
+		.song_msg{
+			width: 100%;
+			flex: 1;
+			-webkit-flex: 1;
+		}
+		.song_rank{
+			display: flex;
+			display: -webkit-flex;
+			align-items: center;
+			-webkit-align-items: center;
+			width: rem(30);
+			font-size: rem(17);
+			color: #999;
+		}
+		&:nth-of-type(1) .song_rank,&:nth-of-type(2) .song_rank,&:nth-of-type(3) .song_rank{
+			color: #df3436;
+		}
+		.song_name{
+			width: 90%;
+			font-size: rem(17);
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+		}
+		.song_author{
+			width: 90%;
+			margin-top: rem(3);
+			font-size: rem(12);
+			color: #888;
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+		}
+		.play_btn_wrap{
+			position: absolute;
+			top: 0;
+			right: 0;
+			display: -webkit-box; 
+		    display: -webkit-flex;
+		    display: flex; 
+			padding: 0 rem(10);
+			height: 100%;
+			-webkit-box-align: center;
+		    -webkit-align-items: center;
+		    align-items: center;			
+			.play_btn{
+				display: block;
+				width: rem(22);
+				height: rem(22);
+				vertical-align: middle;
+				background: url("../assets/index_icon_2x.png") no-repeat; 
+				background-size: rem(166) rem(97);
+				background-position: rem(-24) 0;
+			}
+		}
+		&:after{
+			content: "";
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			border-bottom: 1px solid #ccc;			
+		}
+	}
+}
+
+// loading样式
+.loading_wrap{
+	margin: rem(15) 0 rem(10);
+	height: rem(15);
+	background: url("../assets/loading.gif") no-repeat center;
+	background-size: rem(20);
+}
+
+// 右箭头
+.right_arrow{
+	position: absolute;
+	margin: auto;
+	top: 0;
+	bottom: 0;
+	right: rem(15);
+	display: block;
+	width: rem(8);
+	height: rem(13);
+	background: url("../assets/right_arrow.svg") no-repeat;
+}
+
+// 滑动组件样式
+.wrapper{
+	position: absolute;
+	top: rem(104);
+	bottom: 0;
+	width: 100%;
+	box-sizing: border-box;
+	overflow-y: auto;
+}
