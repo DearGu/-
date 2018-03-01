@@ -4,6 +4,7 @@ import SearchTab from "./searchTab";
 import SongList from "../songList";
 import Loading from "../loading";
 import Scroll from "../scroll";
+import {Link} from "react-router-dom";
 
 // 搜索组件
 class Search extends Component{
@@ -145,13 +146,15 @@ class Search extends Component{
 				searchValue:this.refs.searchInput.value,
 				isShowClear:true,
 				isShowTab:false,
-				isShowList:false
+				isShowList:false,
+				isLoading:false
 			});
 		}else{
 			this.setState({
 				searchValue:this.refs.searchInput.value,
 				isShowTab:true,
-				lock_scroll:true
+				lock_scroll:true,
+				isLoading:false
 			});
 		}
 	}
@@ -165,7 +168,8 @@ class Search extends Component{
 			searchValue:this.refs.searchInput.value,
 			isShowClear:false,
 			isShowTab:true,
-			lock_scroll:true
+			lock_scroll:true,
+			isLoading:false
 		});
 	}
 
@@ -234,13 +238,15 @@ class Search extends Component{
 										return 	[
 												 <div className="singer_msg" key="1">
 												 	<h3>最佳匹配</h3>
-												 	<div className="singer_wrap">
-														<img src={`https://y.gtimg.cn/music/photo_new/T001R68x68M000${this.state.singerMsg.singermid}.jpg?max_age=2592000`} />
-														<div className="singer_text">
-															{`歌手：${this.state.singerMsg.singername}`}
+												 	<Link to={`/artList/${this.state.singerMsg.singermid}`}>
+													 	<div className="singer_wrap">
+															<img src={`https://y.gtimg.cn/music/photo_new/T001R68x68M000${this.state.singerMsg.singermid}.jpg?max_age=2592000`} />
+															<div className="singer_text">
+																{`歌手：${this.state.singerMsg.singername}`}
+															</div>
+															<i className="right_arrow"></i>
 														</div>
-														<i className="right_arrow"></i>
-													</div>
+													</Link>
 												 </div>,
 												 <SongList songList={this.state.songList} key="2"></SongList>
 												]

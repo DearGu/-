@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import "../scss/home.scss";
 import Navtab from "./Navtab";
-import PlaySong from "./playSong/playSong";
 
 class Home extends Component {
   constructor(props){
@@ -65,7 +64,6 @@ class Home extends Component {
               </div>
           </div>
           <Navtab tabList={this.navConfig} history={this.props.history}></Navtab>
-          <PlaySong></PlaySong>
       </div>
     );
   }

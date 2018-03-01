@@ -11,7 +11,8 @@ class Scroll extends Component{
 
 	static defaultProps = {
 		isLock:false,
-		isLoadMore:false  //是否需要加载更多
+		isLoadMore:false,  //是否需要加载更多
+		isTop:false  //是否顶格
 	}
 
 	// 上拉加载更多
@@ -28,7 +29,7 @@ class Scroll extends Component{
 
 	render(){
 		return(
-			<div className="wrapper" onTouchMove={this.handleLoadMore} onScroll={this.handleLoadMore}>
+			<div className="wrapper" style={this.props.isTop? {top:0}:{}} onTouchMove={this.handleLoadMore} onScroll={this.handleLoadMore}>
 				<div className="content">
 					{this.props.children}
 				</div>

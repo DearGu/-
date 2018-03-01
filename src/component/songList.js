@@ -5,14 +5,35 @@ import * as action from "../redux/actions/action";
 
 // 歌曲列表组件
 class SongList extends Component{
+	constructor(props){
+		super(props);
+		this.state = {
+			isMove:false  //判断是否正在滑动
+		}
+
+		// 初始化事件
+		this.handldStart = this.handldStart.bind(this);
+		this.handleMove = this.handleMove.bind(this);
+	}
+
 	static defaultProps = {
 		hasData:false,
+		hasMusicData:false,
 		songList:[],  //歌曲列表的数据
 		showRank:false  //是否显示排行
 	}
 
-	handleStartSong(id,coverId,songName,singerName){
-		this.props.songAction.startSong(id,coverId,songName,singerName);
+	// 开始播放音乐
+	handleStartSong(id,coverId,songName,singerName,duration){
+		!this.state.isMove? this.props.songAction.startSong(id,coverId,songName,singerName,duration) : "";
+	}
+
+	handldStart(){
+		this.setState({isMove:false});
+	}
+
+	handleMove(){
+		this.setState({isMove:true});
 	}
 
 	render(){
@@ -20,8 +41,8 @@ class SongList extends Component{
 			<ul className={this.props.songState.isShowPlayer? "songList_wrap mb60":"songList_wrap"}>
 			{
 				this.props.songList.map((item,idx) => {
-					this.props.hasData? item = item.data : item;
-					return <li className="songList_item" key={idx} onClick={this.handleStartSong.bind(this,item.songmid,item.albummid,item.songname,item.singer[0].name)}>
+					this.props.hasData? item = item.data : this.props.hasMusicData? item = item.musicData : item;
+					return <li className="songList_item" key={idx} onTouchEnd={this.handleStartSong.bind(this,item.songmid,item.albummid,item.songname,item.singer[0].name,item.interval)} onTouchStart={this.handldStart} onTouchMove={this.handleMove}>
 								{
 									this.props.showRank? <div className="song_rank">{idx<9? "0"+(idx+1):(idx+1)}</div>:""
 								}

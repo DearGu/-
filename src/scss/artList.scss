@@ -1,0 +1,65 @@
+@import './basic';
+
+.artList_warp{
+	.artList_cover{
+		position: relative;
+		width: 100%;
+		height: rem(255);
+		overflow: hidden;
+		img{
+			width: 100%;
+		}
+		.artist_name{
+			position: absolute;
+			left: rem(15);
+			bottom: rem(5);
+			font-size: rem(17);
+			color: #fff;
+		}
+	}
+	.artList_msg{
+		position: relative;
+		padding: rem(10) rem(15) 0;
+		.desc_wrap{
+			position: relative;
+			padding-bottom: rem(18);
+			font-size: rem(14);
+			color: #666;
+			.desc{
+				display: -webkit-box;
+				word-break: break-all;
+			    text-overflow: ellipsis;
+			    -webkit-line-clamp: 3;
+			    -webkit-box-orient: vertical;
+			    overflow: hidden;
+			}
+			.spread_btn{
+				position: absolute;
+				right: 0;
+				bottom: rem(3);
+				width: rem(15);
+				height: rem(15);
+				background: url("../assets/down_arrow.png") no-repeat center;
+				background-size: rem(12) auto;
+			}
+			.omit_btn{
+				position: absolute;
+				right: 0;
+				bottom: rem(3);
+				width: rem(15);
+				height: rem(15);
+				background: url("../assets/up_arrow2.png") no-repeat center;
+				background-size: rem(12) auto;
+			}
+		}
+
+	}
+	.hotSong{
+		padding: 0 rem(10);
+		height: rem(23);
+	    line-height: rem(23);
+	    font-size: rem(12);
+	    color: #666;
+	    background-color: #eeeff0;
+	}
+}

@@ -10,6 +10,90 @@
 		-webkit-transform:rotate(360deg);
 	}
 }
+@keyframes imgRoate{
+	0%{
+		transform:rotate(0);
+		-webkit-transform:rotate(0);
+	}
+	100%{
+		transform:rotate(360deg);
+		-webkit-transform:rotate(360deg);
+	}
+}
+@-webkit-keyframes shining {
+    0% {
+        background-position: 0 0
+    }
+
+    15% {
+        background-position: 0 -12px
+    }
+
+    30% {
+        background-position: 0 -24px
+    }
+
+    45% {
+        background-position: 0 -36px
+    }
+
+    60% {
+        background-position: 0 -48px
+    }
+
+    75% {
+        background-position: 0 -60px
+    }
+
+    90% {
+        background-position: 0 -72px
+    }
+
+    to {
+        background-position: 0 -84px
+    }
+}
+@keyframes shining {
+    0% {
+        background-position: 0 0
+    }
+
+    15% {
+        background-position: 0 -12px
+    }
+
+    30% {
+        background-position: 0 -24px
+    }
+
+    45% {
+        background-position: 0 -36px
+    }
+
+    60% {
+        background-position: 0 -48px
+    }
+
+    75% {
+        background-position: 0 -60px
+    }
+
+    90% {
+        background-position: 0 -72px
+    }
+
+    to {
+        background-position: 0 -84px
+    }
+}
+.play{
+	animation:imgRoate 20s linear infinite;
+	-webkit-animation:imgRoate 20s linear infinite;
+}
+.pause{
+	animation-play-state: paused;
+	-webkit-animation-play-state: paused;
+}
 
 // 小播放器
 .playSong_wrap{
@@ -22,15 +106,15 @@
 	width: 100%;
 	height: rem(60);
 	background: #333;
-	img{
+	.cover_wrap{
 		width: rem(40);
 		height: rem(40);
 		margin: 0 rem(10) 0 rem(20);
-		border-radius: 50%;
-	}
-	.play{
-		animation:imgRoate 10s linear infinite;
-		-webkit-animation:imgRoate 10s linear infinite;
+		img{
+			width: 100%;
+			height: 100%;
+			border-radius: 50%;
+		}
 	}
 	.playSong_msg{
 		position: relative;
@@ -107,6 +191,8 @@
 				background-size: rem(17) auto; 
 				transform:rotate(180deg);
 				-webkit-transform:rotate(180deg);
+				animation: shining 1.2s steps(1) infinite;
+				-webkit-animation: shining 1.2s steps(1) infinite;
 			}
 		}
 		.fullPlayer_title{
@@ -129,6 +215,7 @@
 		}
 	}
 	.fullPlayer_cover{
+		position: relative;
 		display: flex;
 		display: -webkit-flex;
 		align-items: center;
@@ -140,11 +227,97 @@
 		margin: 0 auto;
 		background: rgba(255,255,255,0.1);
 		border-radius: 50%;
-		.cover_img{
+		box-sizing: border-box;
+		overflow: hidden;
+		.fullPlayer_cover_wrap{
 			width: rem(280);
 			height: rem(280);
-			border-radius: 50%;
+			.cover_img{
+				width: 100%;
+				height: 100%;
+				border-radius: 50%;
+			}
+		}
+		
+		.fullPlayer_playBtn{
+			position: absolute;
+			margin: auto;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			width: rem(56);
+			height: rem(56);
+			background: url("../assets/play_icon.png") no-repeat;
+			background-size: contain; 
 		}
 	}
-	
+	.song_progress{
+		display: flex;
+		display: -webkit-flex;
+		margin-top: rem(70);
+		height: rem(40);
+		font-size: rem(12);
+		line-height: rem(40);
+		color: #fff;
+		text-align: center;
+		.biginTime,.endTime{
+			flex:1;
+		}
+		.songProgress_wrap{
+			flex:4;
+		}
+		.songProgress_wrap{
+			.progress_inner{
+				position: relative;
+				top:rem(18);
+				height: rem(4);
+				background: rgba(0,0,0,0.3);
+				.progress{
+					position: absolute;
+					height: rem(4);
+					background: #d43c33;
+				}
+				.progress_btn_wrapper{
+					position: absolute;
+					left: rem(-14);
+					top: rem(-14);
+					display: flex;
+					display: -webkit-flex;
+					align-items: center;
+					-webkit-align-items: center;
+					justify-content: center;
+					-webkit-justify-content: center;
+					width: rem(30);
+					height: rem(30);
+					.progress_btn{
+					    width: rem(16);
+					    height: rem(16);
+					    border: rem(3) solid #fff;
+					    border-radius: 50%;
+					    box-sizing: border-box;
+					    background: #d43c33;
+					}
+				}
+			}
+		}
+	}
+	.downloadBtn_wrap{
+		display: flex;
+		display: -webkit-flex;
+		justify-content: center;
+		-webkit-justify-content: center;
+		margin-top: rem(10);
+		.download_btn{
+		    height: rem(40);
+		    line-height: rem(40);
+		    margin: 0 rem(50);
+		    padding: 0 rem(55);
+		    font-size: rem(18);
+		    color: #fff;
+		    border-radius: rem(40);
+		    background-color: #d43c33;
+		    text-align: center;
+		}
+	}
 }
